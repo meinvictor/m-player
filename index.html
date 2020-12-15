@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <nav>
+        </nav>
+    </header>
+
+    <main> 
+
+        <aside>
+            <nav class="menu-explore">
+               
+                <p style="padding-left: 4vw;font: bold 1.4em 'Poppins'; opacity: .6;">MENU</li>
+
+                <a href="#">
+                   
+                    <li style="opacity: .6;"> <img src="img/music-disk.svg" width="16" alt=""> Explore</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/sound.svg" width="16" alt=""> Genres</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/album.svg" width="16" alt=""> Albums</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/microphone.svg" width="16" alt=""> Artists</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/antenna.svg" width="16" alt=""> Radio</li>
+                </a>
+
+            </nav>
+
+            <nav class="menu-explore" style="height: 25vh;">
+               
+                <p style="padding-left: 4vw;font: bold 1.4em 'Poppins'; opacity: .6;">LIBRARY</li>
+
+                <a href="#">
+                   
+                    <li> <img src="img/clock.svg" width="16" alt=""> Recent </li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/album.svg" width="16" alt=""> Albums</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/heart.svg" width="16" alt=""> Favourites</li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/folder.svg" width="16" alt=""> Local</li>
+                </a>
+            </nav>
+
+            <nav class="menu-explore" style="height: 15vh;">
+               
+                <p style="padding-left: 4vw;font: bold 1.4em 'Poppins'; opacity: .6;">PLAYLIST</li>
+
+                <a href="#">
+                   
+                    <li> <img src="img/music-disk.svg" width="16" alt=""> Best of 2020 </li>
+                </a>
+                <a href="#">
+                    <li> <img src="img/sound.svg" width="16" alt=""> Jams</li>
+                </a>
+
+            </nav>
+        </aside> 
+
+        <section>
+            <div id="back"></div>
+        </section>
+
+        <section> 
+            <div id="artistName">
+                <p id="artistNameShow"></p>
+            </div>
+        </section>
+
+        <section> 
+            <div id="topArtist"></div>
+        </section>
+
+        <section> 
+            <div id="genre"></div>
+        </section>
+
+        <section> 
+            <nav id='plays'>
+               <div class="one">
+                   <a href="#">
+                       <div><img src="img/play.png" alt="play"></div>
+                   </a>
+                </div>
+                <div class="two">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+                 <div class="three">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+                 <div class="four">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+                 <div class="five">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+                 <div class="six">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+                 <div class="seven">
+                    <a href="#">
+                        <div><img src="img/play.png" alt="play"></div>
+                    </a>
+                 </div>
+
+            </nav>
+
+            <div id="title"></div>
+        </section>
+
+        <section> 
+            <div id="player">
+                <div class="player-picture">
+                    
+                </div>
+                <div class="player-artistName"></div>
+                <div class="player-title"></div>
+                <div id="background-player-style">
+                    <audio src="" controls id="player-audio"></audio>
+               </div>
+            </div>
+        </section>
+
+        <form id="search">
+            <input type="text" placeholder="Type here to search" id="artistNameInput">
+            <a href="#" onclick="searchArtist(document.getElementById('artistNameInput').value)">
+                <img src="img/search.svg" alt="search" width="20" height="20" style="opacity: .6;">
+            </a>
+        </form>
+        
+        
+
+    </main>
+
+    <script>
+
+        function searchArtist(artist){
+            
+        $("#artistNameShow").empty();
+        $("#title").empty();
+        $(".player-title").empty();
+        $("#pic").empty();
+        $(".player-artistName").empty();
+        
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + artist,
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                "x-rapidapi-key": "b95e0b9817msh5b9c7f9034d4389p16795fjsn6c708312761f"
+            }
+        }
+
+        var i = 0;
+        var position = 1;
+    
+
+        $.ajax(settings).done(function (response) {
+        console.log(response);
+            $(".player-artistName").append(response.data[0].artist.name);
+            $(".player-picture").append("<img src='' alt='' id='pic'/>");
+            $("#artistNameShow").append(response.data[0].artist.name);    
+            
+            let picture = response.data[i].artist.picture;
+            $("#pic").attr("src", picture);
+           
+
+            for(i=0;i<7;i++)
+            {
+                $("#title").append("<span class='pos'>" + position + "</span>" + "<a href='#' id='titleLink'>" + response.data[i].title_short + "</a>" + "<br/>");
+                position++;
+            }    
+            $('.one').click(function(){
+                var track = response.data[0].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[0].title_short); 
+            });
+            $('.two').click(function(){
+                var track = response.data[1].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[1].title_short); 
+            });
+            $('.three').click(function(){
+                var track = response.data[2].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[2].title_short); 
+            });
+            $('.four').click(function(){
+                var track = response.data[3].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[3].title_short); 
+            });
+            $('.five').click(function(){
+                var track = response.data[4].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[4].title_short); 
+            });
+            $('.six').click(function(){
+                var track = response.data[5].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[5].title_short); 
+            });
+            $('.seven').click(function(){
+                var track = response.data[6].preview;
+                $("#player-audio").attr("src", track);
+                document.getElementById('player-audio').play();
+                $(".player-title").empty();
+                $(".player-title").append(response.data[6].title_short); 
+            });            
+
+        });
+
+
+        
+
+    
+    
+    }
+    
+
+    </script>
+
+</body>
+</html>

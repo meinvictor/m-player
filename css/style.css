@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+audio, 
+audio:active, 
+audio:focus {
+    outline: none;
+}
+
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+
+input, 
+input:active, 
+input:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+body {
+    background: #F1F1F1;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    outline: 1px solid red;
+}
+
+
+main {
+    width: 100vw;
+    height: 90vh;
+    outline: 1px solid blue;
+}
+
+main aside {
+    outline: 1px solid red;
+    width: 15vw;
+    height: 90vh;
+    float:left;
+    font: bold .8em 'Poppins';
+}
+
+main aside nav.menu-explore {
+    width: 15vw;
+    height: 28vh;
+    opacity: .8;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+}
+
+main aside nav a {
+    color: #000;
+}
+
+main aside nav.menu-explore li {
+    line-height: 5vh;
+    color: #000;
+    list-style-type: none;
+    padding-left: 4vw;
+    transition: .2s all ease;
+}
+
+main aside nav.menu-explore li img {
+    position: relative;
+    top: 3px; 
+    padding-right: 5px;
+}
+
+
+main aside nav.menu-explore li:hover {
+    transform: scale(1.15);
+    opacity: 1;
+    transition: .1s all ease;
+}
+
+section #back {
+    width: 85vw;
+    height: 40vh;
+    left:15vw;
+    outline: 1px solid blueviolet;
+    position: absolute;
+    background-image: url(../img/);
+    opacity: .2;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+section #artistName {
+    width: 40vw;
+    height: 20vh;
+    left: 20vw;
+    position: relative;
+    outline: 1px solid red;
+   
+}
+
+section #artistNameShow {
+    width: 80%;
+    height: 10vh;
+    position: absolute;
+    font: 3.5em 'Anton';
+    opacity: .7;
+}
+
+
+
+section #topArtist {
+    outline: 1px solid blue;
+    width: 40vw;
+    height: 15vh;
+    top: 5vh;
+    left: 20vw;
+    position: relative;
+}
+
+section #genre {
+    outline: 1px solid blue;
+    width: 15vw;
+    height: 35vh;
+    top: 10vh;
+    left: 5vw;
+    position: relative;
+    float:left;
+   
+}
+
+section #title {
+    background: #ebebeb;
+    width: 24vw;
+    height: 35vh;
+    top: 10vh;
+    left: 6vw;
+    position: relative;
+    float: left;
+    line-height: 4.6vh;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 8px -1px rgba(0,0,0,0.68); 
+    box-shadow: 1px 1px 8px -1px rgba(0,0,0,0.68);
+}
+
+#titleLink {
+    text-decoration: none;
+    font: bold .9em 'Poppins';
+    opacity: .7;
+    color:black;
+    position: relative;
+    top:10px;
+    margin-left: 30px;
+}
+
+
+.pos {
+    opacity: .4;
+    font: bold .7em 'Poppins';
+    position: relative;
+    top: 9px;
+    left: 15px;
+}
+
+nav#plays {
+    position: absolute;
+    width:24vw;
+    left: 36vw;
+    top:26vw;
+    height: 35vh;
+    z-index: 999;
+}
+
+nav#plays div {
+    position: relative;
+    top:7px;
+    line-height: 35px;
+    transition: .2s all ease;
+}
+
+nav#plays div a div:hover {
+    background:#e3e3e3;
+    opacity: .3;
+    transition: .2s all ease;
+}
+
+nav#plays div a div img {
+    padding-left: 22vw;
+    opacity: .4;
+}
+
+
+section #player {
+    width: 25vw;
+    height: 55vh;
+    position: relative;
+    top: -10vh;
+    right: 10vw;
+    float: right;
+    background: #322F3B;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    -webkit-box-shadow: 1px 1px 8px -1px rgba(0,0,0,0.68); 
+    box-shadow: 1px 1px 8px -1px rgba(0,0,0,0.68);
+}
+
+section #player .player-picture {
+    position: relative;
+    top:5vh;
+    height: 15vh;
+}
+
+section #player .player-picture  #pic {
+    border-radius: 50%;
+    width: 7vw;
+    position: relative;
+    left: 9vw;
+    text-align: center;
+}
+
+section #player .player-artistName {
+    position: relative;
+    top:8.5vh;
+    height: 3vh;
+    text-align: center;
+    color:#fff;
+    font: .8em 'Poppins';
+    opacity: .9;
+}
+
+
+section #player .player-title {
+    position: relative;
+    top:10vh;
+    height: 7vh;
+    text-align: center;
+    color:#fff;
+    font:bold 1.8em 'Poppins';
+
+}
+
+
+section #player  #background-player-style {
+    min-height: 20vh;
+    position: relative;
+    top: 11vh;
+    background-color: #F1F3F4;
+    z-index:1;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+section #player #background-player-style  #player-audio {
+    position: relative;
+    width: 20vw;
+    top:7vh;
+    left:2.5vw;
+    z-index: 9999;
+    border:none;
+}
+
+#search input{
+    position: absolute;
+    width: 20vw;
+    top: 1vw;
+    left: 40vw;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(50,47,59, .7);
+    font: .9em 'Poppins';
+}
+
+
+#search a {
+    position: absolute;
+    width: 20vw;
+    top: 1vw;
+    left: 65vw;
+    padding: 10px;
+}
